@@ -8,8 +8,3 @@ class Robot:
 
 
 
-
-    def attack(self,dinosaur):
-        pass
-
-
