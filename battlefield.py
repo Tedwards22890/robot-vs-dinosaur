@@ -1,5 +1,5 @@
-from dinosaur import Dinosaur
-from robot import Robot
+from fleet import Fleet
+from herd import Herd
 
 class Battlefield:
     def __init__(self):
@@ -7,13 +7,9 @@ class Battlefield:
 
     def run_game(self):
         self.display_welcome()
-        d1=Dinosaur("Troodon",15,50)
-        r1=Robot("Buzz",50,"Laser",15)
-        r2=Robot("Bleep",50,"Saw",15)
-        r3=Robot("Bloop",50,"Plasma Burst",15)
         self.robot_wins=True
-        self.robot_wins=self.battle_phase(d1,r1)
-        self.display_winner(self.robot_wins,d1,r1)
+        self.robot_wins=self.battle_phase()
+        self.display_winner(self.robot_wins)
 
 
 
@@ -23,10 +19,19 @@ class Battlefield:
     def display_welcome(self):
         print("Welcome to Robot vs Dinosaur!")
 
-    def battle_phase(self,d1,r1):
-        while (d1.health>0 and r1.health>0):
-            print(f"{r1.name} HP: {r1.health}")
-            print(f"{d1.name} HP: {d1.health}")
+    def battle_phase(self):
+        fleet1=Fleet()
+        herd1=Herd()
+        z=0
+        while (z==0):
+            for x in range(len(fleet1.robots)):
+                print(f"{fleet1.robots[x].name}: {fleet1.robots[x].health}hp")
+            for x in range(len(herd1.dinosaurs)):
+                print(f"{herd1.dinosaurs[x].name}: {herd1.dinosaurs[x].health}hp")
+            choice
+
+            
+            quit()
             print(f"{r1.name} attacks with his {r1.weapons[0].name} and deals {r1.weapons[0].attack_power} damage")
             d1.health-=r1.weapons[0].attack_power
             if (d1.health >0):
@@ -43,7 +48,7 @@ class Battlefield:
             
 
 
-    def display_winner(self,robot_wins,d1,r1):
+    def display_winner(self,robot_wins):
         if (robot_wins == True):
             print(f"{r1.name} has won the fight!")
         else:
