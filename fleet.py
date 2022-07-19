@@ -12,7 +12,13 @@ class Fleet:
         for x in range(len(self.robots)):
             print(self.robots[x].weapons[x].attack_power)
 
-    def get_damage(self,choice):
-        print(self.robots[0].weapons[choice].name)
+    def get_weapon_name(self,choice):
+        return self.robots[0].weapons[choice].name
+
+    def get_weapon_damage(self,choice):
+        return self.robots[0].weapons[choice].attack_power
+    
+    def remove(self):
+        self.robots.pop(0)
 
 

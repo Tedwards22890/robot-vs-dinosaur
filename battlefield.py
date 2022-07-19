@@ -28,30 +28,34 @@ class Battlefield:
                 print(f"{fleet1.robots[x].name}: {fleet1.robots[x].health}hp")
             for x in range(len(herd1.dinosaurs)):
                 print(f"{herd1.dinosaurs[x].name}: {herd1.dinosaurs[x].health}hp")
-            choice
+            print("Which weapon do you want to attack with?\n0)Laser\n1)Saw\n2)Plasma Beam")
+            choice=int(input("Select 0, 1 or 2: "))
+            weapon_choice=fleet1.get_weapon_name(choice)
+            weapon_damage=fleet1.get_weapon_damage(choice)
 
+            print(f"{fleet1.robots[0].name} attacks with {weapon_choice} and deals {weapon_damage} damage")
+            herd1.dinosaurs[0].health-=weapon_damage
+            if (herd1.dinosaurs[0].health <1):
+                herd1.remove()
+            if (len(herd1.dinosaurs) ==0):
+                return True
+                break
+            print(f"{herd1.dinosaurs[0].name} attacks dealing {herd1.dinosaurs[0].attack_power}")
+            fleet1.robots[0].health-=herd1.dinosaurs[0].attack_power
+
+            if (fleet1.robots[0].health<1):
+                fleet1.remove()
             
-            quit()
-            print(f"{r1.name} attacks with his {r1.weapons[0].name} and deals {r1.weapons[0].attack_power} damage")
-            d1.health-=r1.weapons[0].attack_power
-            if (d1.health >0):
-                print(f"{d1.name} attacks and deals {d1.attack_power} damage!")
-                r1.health-=d1.attack_power
-            else:
-                pass
-        
-        if (r1.health<0):
-            return False
-        else:
-            return True
-
+            if (len(fleet1.robots) ==0):
+                return False
+                break
             
-
+            
 
     def display_winner(self,robot_wins):
         if (robot_wins == True):
-            print(f"{r1.name} has won the fight!")
+            print("Robots have won the fight!")
         else:
-            print(f"{d1.name} has won the fight!")
+            print("Dinosaurs have won the fight!")
 
     
