@@ -33,8 +33,8 @@ class Battlefield:
                 print(f"{herd1.dinosaurs[x].name}: {herd1.dinosaurs[x].health}hp")
             print()
             time.sleep(2)
-            print("Which weapon do you want to attack with?\n0)Laser\n1)Saw\n2)Plasma Beam")
-            choice=input("Select 0, 1 or 2: ")
+            print("Which weapon do you want to attack with?\n1)Laser\n2)Saw\n3)Plasma Beam")
+            choice=input("Select 1, 2 or 3: ")
             weapon_choice=fleet1.get_weapon_name(choice)
             weapon_damage=fleet1.get_weapon_damage(choice)
 
@@ -44,6 +44,7 @@ class Battlefield:
             print(f"{fleet1.robots[0].name} attacks with its {weapon_choice} and deals {weapon_damage} damage")
             herd1.dinosaurs[0].health-=weapon_damage
             if (herd1.dinosaurs[0].health <1):
+                print(f"{herd1.dinosaurs[0].name} has been defeated!")
                 herd1.remove()
             if (len(herd1.dinosaurs) ==0):
                 return True
@@ -52,6 +53,7 @@ class Battlefield:
             fleet1.robots[0].health-=herd1.dinosaurs[0].attack_power
 
             if (fleet1.robots[0].health<1):
+                print(f"{fleet1.robots[0].name} has been destroyed!")
                 fleet1.remove()
             
             if (len(fleet1.robots) ==0):
