@@ -1,3 +1,4 @@
+import time
 from fleet import Fleet
 from herd import Herd
 
@@ -33,7 +34,7 @@ class Battlefield:
             weapon_choice=fleet1.get_weapon_name(choice)
             weapon_damage=fleet1.get_weapon_damage(choice)
 
-            print(f"{fleet1.robots[0].name} attacks with {weapon_choice} and deals {weapon_damage} damage")
+            print(f"{fleet1.robots[0].name} attacks with its {weapon_choice} and deals {weapon_damage} damage")
             herd1.dinosaurs[0].health-=weapon_damage
             if (herd1.dinosaurs[0].health <1):
                 herd1.remove()
@@ -49,6 +50,8 @@ class Battlefield:
             if (len(fleet1.robots) ==0):
                 return False
                 break
+
+            time.sleep(3)
             
             
 
