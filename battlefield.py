@@ -8,7 +8,9 @@ class Battlefield:
     def run_game(self):
         self.display_welcome()
         d1=Dinosaur("Troodon",15,50)
-        r1=Robot("Buzz",50,"Laser",16)
+        r1=Robot("Buzz",50,"Laser",15)
+        r2=Robot("Bleep",50,"Saw",15)
+        r3=Robot("Bloop",50,"Plasma Burst",15)
         self.robot_wins=True
         self.robot_wins=self.battle_phase(d1,r1)
         self.display_winner(self.robot_wins,d1,r1)
