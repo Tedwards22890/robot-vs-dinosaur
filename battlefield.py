@@ -34,7 +34,7 @@ class Battlefield:
             print()
             time.sleep(2)
             print("Which weapon do you want to attack with?\n0)Laser\n1)Saw\n2)Plasma Beam")
-            choice=int(input("Select 0, 1 or 2: "))
+            choice=input("Select 0, 1 or 2: ")
             weapon_choice=fleet1.get_weapon_name(choice)
             weapon_damage=fleet1.get_weapon_damage(choice)
 
